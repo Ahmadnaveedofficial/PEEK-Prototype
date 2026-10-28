@@ -349,7 +349,7 @@ startDemo = async function () {
   revealParts();
   toast("Click any part to discover what is inside.");
 };
-route();
+// Initial route is rendered once by samsung-studio.js after all prototype layers load.
 window.addEventListener("hashchange", () => clearInterval(partTimer));
 
 function switchDemo(value) {

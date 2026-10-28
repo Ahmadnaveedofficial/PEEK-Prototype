@@ -442,5 +442,4 @@ async function startDemo() {
     selectPart(0);
   }
 }
-window.addEventListener("hashchange", route);
-route();
+window.addEventListener("hashchange", route); // Initial route is rendered once by samsung-studio.js after all prototype layers load.

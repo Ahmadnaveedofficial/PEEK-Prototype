@@ -3,7 +3,7 @@ Explore Technology inside out
 
 RUN IN VS CODE
 1. Extract the ZIP first.
-2. Open the PEEK-folder in VS Code.
+2. Open the PEEK folder in VS Code.
 3. Select Terminal > New Terminal.
 4. Run: npm start
    If Windows PowerShell blocks npm, run: npm.cmd start

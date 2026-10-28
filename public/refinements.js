@@ -131,4 +131,4 @@ useDeviceImage = function (f) {
     );
   }
 };
-route();
+// Initial route is rendered once by samsung-studio.js after all prototype layers load.
