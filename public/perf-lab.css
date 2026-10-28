@@ -1,0 +1,469 @@
+/* Detailed performance dashboard (perf-lab.js). Matches the graphite + electric-blue theme. */
+#selected-app .pl-kind {
+  margin: 6px 0 0;
+  font-size: 11px;
+  color: #9aa0b4;
+}
+#selected-app .pl-kind b {
+  color: #c9c7ff;
+  font-weight: 700;
+}
+.pl-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: flex-end;
+  margin: 20px 0 6px;
+}
+.pl-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #9aa0b4;
+  font-weight: 700;
+}
+.pl-controls select {
+  min-width: 210px;
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 500;
+  padding: 11px 12px;
+}
+.pl-pill {
+  font-size: 9px;
+  letter-spacing: 1.4px;
+  font-weight: 700;
+  border: 1px solid #3d3f5c;
+  border-radius: 20px;
+  padding: 8px 12px;
+  color: #aab0d8;
+  background: #15162a;
+  align-self: center;
+}
+.pl-verdicts {
+  display: grid;
+  gap: 14px;
+  margin: 16px 0 4px;
+}
+.pl-verdicts.two {
+  grid-template-columns: 1fr 1fr;
+}
+.pl-verdict {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 18px;
+  align-items: center;
+  padding: 16px 20px;
+  border: 1px solid #33344a;
+  border-radius: 14px;
+  background: linear-gradient(130deg, #1b1c2b, #121320);
+}
+.pl-verdict .who {
+  grid-column: 1/-1;
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #9aa0b4;
+  font-weight: 700;
+}
+.pl-verdict .who i,
+.pl-card .tg {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+.pl-ring {
+  width: 78px;
+  height: 78px;
+}
+.pl-ring text {
+  fill: #f4f4fa;
+  font:
+    800 22px Manrope,
+    Arial,
+    sans-serif;
+}
+.pl-verdict .vd {
+  display: block;
+  font:
+    800 22px Manrope,
+    Arial,
+    sans-serif;
+  letter-spacing: -0.5px;
+}
+.pl-verdict .vs {
+  display: block;
+  font-size: 13px;
+  color: #d9d9ee;
+  margin-top: 3px;
+}
+.pl-verdict small {
+  display: block;
+  font-size: 11px;
+  color: #9aa0b4;
+  margin-top: 6px;
+}
+.pl-sum {
+  font-size: 14px;
+  line-height: 1.75;
+  color: #c5c7da;
+  margin: 14px 2px 18px;
+}
+.pl-sum b {
+  color: #fff;
+}
+.pl-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.pl-stat {
+  border: 1px solid #2f3045;
+  border-radius: 12px;
+  padding: 14px 15px;
+  background: #14151f;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.pl-stat > span {
+  font-size: 10px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: #9aa0b4;
+  font-weight: 700;
+}
+.pl-stat strong {
+  font:
+    800 22px Manrope,
+    Arial,
+    sans-serif;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  color: #f4f4fa;
+}
+.pl-stat strong small {
+  font:
+    500 11px "DM Sans",
+    Arial;
+  color: #9aa0b4;
+  letter-spacing: 0;
+}
+.pl-stat strong.b {
+  font-size: 17px;
+  color: #d9d9ee;
+}
+.pl-stat strong.win {
+  color: #5be3a2;
+}
+.pl-stat em {
+  font-style: normal;
+  font-size: 11px;
+  color: #8a8fa6;
+  margin-top: 2px;
+}
+.pl-stat i {
+  display: none;
+}
+.pl-stat strong.b i,
+.pl-stat .dotA {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  align-self: center;
+}
+.pl-stat .dotA {
+  background: #8f8bff;
+}
+.pl-stat .dotB {
+  background: #4fd8c0;
+}
+.pl-verdicts:not(.two) ~ .pl-stats .dotA {
+  display: none;
+}
+.pl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.pl-card {
+  margin: 0 0 16px;
+  padding: 18px 18px 14px;
+  border: 1px solid #2f3045;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #1a1b29, #11121b);
+  min-width: 0;
+}
+.pl-grid > .pl-card {
+  margin: 0;
+}
+.pl-card h3 {
+  font:
+    800 16px Manrope,
+    Arial,
+    sans-serif;
+  margin: 0 0 4px;
+  color: #f4f4fa;
+}
+.pl-card p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #9aa0b4;
+  margin: 0 0 8px;
+}
+.pl-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  font-size: 11px;
+  color: #b9bdd0;
+  margin: 6px 0 4px;
+}
+.pl-legend i {
+  display: inline-block;
+  width: 14px;
+  height: 3px;
+  border-radius: 2px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+.pl-c {
+  position: relative;
+  touch-action: pan-y;
+  cursor: crosshair;
+}
+.pl-c svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+.pl-c text {
+  fill: #8a8fa6;
+  font:
+    10px "DM Sans",
+    Arial,
+    sans-serif;
+}
+.pl-c text.rl {
+  font-size: 9.5px;
+  font-weight: 700;
+}
+.pl-c .gl {
+  stroke: #2a2c40;
+  stroke-width: 1;
+}
+.pl-c .cross {
+  stroke: #8f93b3;
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+  opacity: 0;
+}
+.pl-c .dot {
+  opacity: 0;
+  stroke: #11121b;
+  stroke-width: 2;
+}
+.pl-tip {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  min-width: 130px;
+  max-width: 260px;
+  padding: 9px 11px;
+  border-radius: 9px;
+  background: #0c0d16f2;
+  border: 1px solid #42446a;
+  font-size: 11px;
+  color: #e6e7f5;
+  box-shadow: 0 8px 28px #0008;
+  z-index: 3;
+  transition: opacity 0.12s;
+}
+.pl-tip > b {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+}
+.pl-tip div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 3px;
+}
+.pl-tip div i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.pl-tip div span {
+  flex: 1;
+  color: #b9bdd0;
+}
+.pl-tip div b {
+  white-space: nowrap;
+}
+.pl-bk {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 12px;
+  align-items: center;
+  margin: 12px 0;
+}
+.pl-bk > span {
+  font-size: 12px;
+  color: #d9d9ee;
+}
+.pl-bk > div {
+  display: flex;
+  height: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #23243a;
+}
+.pl-bk > div i {
+  display: block;
+  height: 100%;
+}
+.pl-tw {
+  overflow-x: auto;
+}
+.pl-card table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  min-width: 430px;
+}
+.pl-card th {
+  background: none;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #9aa0b4;
+  text-align: left;
+  padding: 9px 10px;
+  border-bottom: 1px solid #2f3045;
+  white-space: nowrap;
+}
+.pl-card td {
+  padding: 10px;
+  border-bottom: 1px solid #23243a;
+  color: #dcdcf0;
+}
+.pl-card td small {
+  color: #8a8fa6;
+}
+.pl-card tbody tr[onclick] {
+  cursor: pointer;
+}
+.pl-card tbody tr[onclick]:hover {
+  background: #1f2035;
+}
+.pl-card tr.sel {
+  background: #25264a;
+}
+.pl-card tr.sel td:first-child {
+  box-shadow: inset 3px 0 #8f8bff;
+}
+.pl-card tr.off td {
+  color: #7b7f95;
+}
+.pl-hw td:first-child {
+  color: #9aa0b4;
+  white-space: nowrap;
+}
+.pl-hw td {
+  line-height: 1.5;
+}
+.chip {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--c);
+  border: 1px solid var(--c);
+  background: #0003;
+  white-space: nowrap;
+}
+.best {
+  margin-left: 8px;
+  font-size: 9px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #5be3a2;
+  border: 1px solid #5be3a255;
+  border-radius: 10px;
+  padding: 2px 7px;
+}
+.pl-insg {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+.pl-ins {
+  border-radius: 11px;
+  padding: 13px 15px;
+  border: 1px solid #2f3045;
+  background: #14151f;
+  border-left: 3px solid #8f8bff;
+}
+.pl-ins.good {
+  border-left-color: #5be3a2;
+}
+.pl-ins.warn {
+  border-left-color: #ffb454;
+}
+.pl-ins b {
+  font-size: 13px;
+  color: #f4f4fa;
+  display: block;
+  margin-bottom: 5px;
+}
+.pl-ins p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.65;
+  color: #aeb2c6;
+}
+
+@media (max-width: 860px) {
+  .pl-grid,
+  .pl-verdicts.two {
+    grid-template-columns: 1fr;
+  }
+  .pl-bk {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+@media (max-width: 600px) {
+  .pl-controls select {
+    min-width: 0;
+    width: 100%;
+  }
+  .pl-controls label {
+    width: 100%;
+  }
+  .pl-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+  .pl-verdict .vd {
+    font-size: 19px;
+  }
+}

@@ -1,0 +1,60 @@
+PEEK — REALISTIC PHONE UPDATE
+Explore Technology inside out
+
+RUN IN VS CODE
+1. Extract the ZIP first.
+2. Open the PEEK-folder in VS Code.
+3. Select Terminal > New Terminal.
+4. Run: npm start
+   If Windows PowerShell blocks npm, run: npm.cmd start
+5. Open http://localhost:3000 in your browser.
+
+Requires Node.js 22 or later. No npm install or API key is needed.
+Stop the server with Ctrl+C. If port 3000 is busy, stop the older server.
+You can also use VS Code Live Server on the root index.html.
+Do not open public/index.html directly with file://; use an HTTP server.
+
+FINAL FEATURES
+- Transparent logo with white PEEK text and blue P without white outline.
+- Space-themed Home with the Samsung S23 Ultra 3D reference studio.
+- Reference-based cream S23 Ultra exterior with square corners and golden wallpaper.
+- Raised camera barrels, optical rings, side keys, antenna bands and bottom ports.
+- Full front/back 3D rotation with compact, hidden internal modules when closed.
+- Assemble resets individual part rotations and restores the phone silhouette.
+- Hover, select, rotate, move, flip and inspect reference subcomponents.
+- Device details appear only after upload or demo; 17 mobile categories.
+- Component Knowledge: 22 assemblies and 81 explanatory subcomponents.
+- Comparison: device details, component scores, then overall comparison.
+- Performance: app search, popular icons, settings, two-device charts.
+- Finder: app, budget, brand, RAM and workload filters.
+- Updated team roles: Ahmad Naveed — CEO & Team Lead;
+  Unbreen Fatima — HR Manager; Ukasha Abid — QA Tester.
+- Aligned Comparison categories and full-width performance settings tables.
+- Devices page and extra phrase Finder removed.
+
+DATA NOTES
+Photos stay in the browser. Uploading starts the curated S23 Ultra reference;
+this prototype does not recognize arbitrary devices or call an AI service.
+Reference geometry and internal layouts are illustrative, not repair diagrams.
+The exterior follows your supplied image; it is not a manufacturer CAD scan.
+Performance charts and scores are simulations / samples, not measured tests.
+The iPhone 18 record is an unverified concept; Aster, Nimbus and Orbit are
+fictional demos. Other imported extended fields may be sample data.
+Manufacturer references and dated price listings are linked where available.
+Prices, regional variants, carrier support and software availability can vary.
+App catalogue search needs internet; local popular suggestions are included.
+
+EDIT THE PROJECT
+public/index.html: page shell, navigation and footer
+public/v3-merge.css: final styling and white wordmark treatment
+public/v3-merge.js: page integration and Home information rendering
+public/home-knowledge.js: Home specification and component explanations
+public/discovery.js + discovery-data.js: comparison, Finder and catalogue
+public/perf-lab.js + perf-sim.js: performance dashboard and simulation
+public/samsung-studio.js + samsung-data.js: 3D reference studio and parts
+public/samsung-assembly.js: complete assembled exterior and internal placements
+public/vendor/LICENSE: Three.js MIT license
+
+OPTIONAL CHECKS
+npm test (Windows: npm.cmd test)
+Checks catalogue, simulated scenarios, Finder budgets and studio asset integrity and assembled module bounds.

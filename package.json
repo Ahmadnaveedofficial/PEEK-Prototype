@@ -1,0 +1,13 @@
+{
+  "name": "peek-final",
+  "version": "3.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node checks/verify-merge.cjs && node checks/verify-assembly.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

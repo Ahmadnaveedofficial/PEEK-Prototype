@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1500855883,
+    "name": "CapCut: Photo & Video Editor",
+    "icon": "app-icons/1500855883.jpg",
+    "publisher": "BYTEDANCE PTE. LTD.",
+    "url": "https://apps.apple.com/us/app/capcut-photo-video-editor/id1500855883?uo=4",
+    "genre": "Photo & Video"
+  },
+  {
+    "id": 1330123889,
+    "name": "PUBG MOBILE",
+    "icon": "app-icons/1330123889.jpg",
+    "publisher": "Tencent Mobile International Limited",
+    "url": "https://apps.apple.com/us/app/pubg-mobile/id1330123889?uo=4",
+    "genre": "Games"
+  },
+  {
+    "id": 1517783697,
+    "name": "Genshin Impact 6th Anniversary",
+    "icon": "app-icons/1517783697.jpg",
+    "publisher": "COGNOSPHERE PTE. LTD.",
+    "url": "https://apps.apple.com/us/app/genshin-impact-6th-anniversary/id1517783697?uo=4",
+    "genre": "Games"
+  },
+  {
+    "id": 878783582,
+    "name": "Lightroom: AI Photo Editor",
+    "icon": "app-icons/878783582.jpg",
+    "publisher": "Adobe Inc.",
+    "url": "https://apps.apple.com/us/app/lightroom-ai-photo-editor/id878783582?uo=4",
+    "genre": "Photo & Video"
+  },
+  {
+    "id": 544007664,
+    "name": "YouTube",
+    "icon": "app-icons/544007664.jpg",
+    "publisher": "Google LLC",
+    "url": "https://apps.apple.com/us/app/youtube/id544007664?uo=4",
+    "genre": "Photo & Video"
+  },
+  {
+    "id": 1287282214,
+    "name": "Call of Duty\u00ae: Mobile",
+    "icon": "app-icons/1287282214.jpg",
+    "publisher": "Activision Publishing, Inc.",
+    "url": "https://apps.apple.com/us/app/call-of-duty-mobile/id1287282214?uo=4",
+    "genre": "Games"
+  }
+]

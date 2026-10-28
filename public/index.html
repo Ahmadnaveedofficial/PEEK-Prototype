@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Explore technology inside out. An interactive PEEK prototype with 3D exploration, component explanations, comparison graphs, performance charts and an app-and-budget Finder."
+    />
+    <link rel="icon" type="image/png" href="peek-icon-updated.png" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="apple-touch-icon" href="peek-icon-updated.png" />
+    <title>PEEK — Explore Technology inside out</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="samsung-studio.css" />
+    <link rel="stylesheet" href="discovery.css" />
+    <link rel="stylesheet" href="v3-lab.css" />
+    <link rel="stylesheet" href="perf-lab.css" />
+    <link rel="stylesheet" href="v3-polish.css" />
+    <link rel="stylesheet" href="v3-merge.css" />
+  </head>
+  <body>
+    <a
+      class="skip-link"
+      href="#main"
+      onclick="
+        event.preventDefault();
+        document.getElementById('main').focus();
+      "
+      >Skip to main content</a
+    >
+    <header>
+      <a href="#home" class="brand"
+        ><span class="peek-brand-art"
+          ><img src="peek-logo-transparent.png" alt="PEEK" /></span
+      ></a>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#comparison">Comparison</a
+        ><a href="#performance">Performance</a><a href="#finder">Finder</a
+        ><a href="#about">About</a>
+      </nav>
+      <button class="primary small" onclick="startDemo()">
+        Explore demo <span>↗</span>
+      </button>
+    </header>
+    <main id="main" tabindex="-1">
+      <noscript>PEEK needs JavaScript. Enable it and reload.</noscript>
+    </main>
+    <footer>
+      <div class="footer-grid">
+        <div>
+          <span class="peek-brand-art footer-brand-art"
+            ><img
+              src="peek-logo-transparent.png"
+              alt="PEEK"
+              class="footer-logo"
+          /></span>
+          <p>
+            Look beyond the surface.<br />Discover the components that power
+            your world.<br />Explore Technology inside out.
+          </p>
+        </div>
+        <div>
+          <b>Explore</b><a href="#home">3D explorer</a
+          ><a href="#comparison">Compare devices</a
+          ><a href="#performance">App performance</a
+          ><a href="#finder">Device Finder</a>
+        </div>
+        <div>
+          <b>Get to know PEEK</b><a href="#about">About us</a
+          ><button
+            onclick="
+              info(
+                'Contact us',
+                'PEEK is currently a prototype. Official contact details will be added before launch.',
+              )
+            "
+          >
+            Contact us</button
+          ><button
+            onclick="
+              info(
+                'Help center',
+                'Use Home for the original S23 Ultra 3D studio. After uploading a photo or opening the demo, device information and component knowledge appear below the 3D view. Comparison includes category graphs, Performance includes simulated time-series charts, and Finder filters devices by app, budget, brand and RAM.',
+              )
+            "
+          >
+            Help center</button
+          ><button
+            onclick="
+              info(
+                'How it works',
+                'Upload a device photo or start the Samsung S23 Ultra reference demo. Hover a component for details, click to inspect, then rotate, move or explore its subcomponents.',
+              )
+            "
+          >
+            How it works
+          </button>
+        </div>
+        <div>
+          <b>The details</b
+          ><button
+            onclick="
+              info(
+                'Privacy policy',
+                'Images selected in this prototype stay in your browser. They are not uploaded to a server. No account is required.',
+              )
+            "
+          >
+            Privacy policy</button
+          ><button
+            onclick="
+              info(
+                'Terms of use',
+                'This is an educational prototype. Component models, ratings and performance figures are illustrative and are not verified buying or repair guidance.',
+              )
+            "
+          >
+            Terms of use</button
+          ><button
+            onclick="
+              info(
+                'Frequently asked questions',
+                'Uploading a photo starts the curated S23 Ultra reference experience. It does not identify arbitrary hardware. Front and back textures use the supplied diagrams; geometry and some subcomponents are approximate.',
+              )
+            "
+          >
+            FAQ
+          </button>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 PEEK. A closer look at technology.</span>
+        <div>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener"
+            >LinkedIn ↗</a
+          ><a href="https://www.youtube.com/" target="_blank" rel="noopener"
+            >YouTube ↗</a
+          ><small>Social destinations · official profiles coming soon</small>
+        </div>
+      </div>
+    </footer>
+    <dialog id="dialog">
+      <button
+        class="close"
+        onclick="this.closest('dialog').close()"
+        aria-label="Close"
+      >
+        ×
+      </button>
+      <h2 id="dialog-title"></h2>
+      <p id="dialog-text"></p>
+    </dialog>
+    <div id="toast" role="status"></div>
+    <script src="app.js"></script>
+    <script src="explorer.js"></script>
+    <script src="refinements.js"></script>
+    <script src="experience.js"></script>
+    <script src="device-panels.js"></script>
+    <script src="discovery-data.js"></script>
+    <script src="discovery.js"></script>
+    <script src="v3-context.js"></script>
+    <script src="v3-performance-shell.js"></script>
+    <script src="perf-sim.js"></script>
+    <script src="perf-lab.js"></script>
+    <script src="v3-finder.js"></script>
+    <script src="home-knowledge.js"></script>
+    <script src="v3-merge.js"></script>
+    <script type="module" src="samsung-studio.js"></script>
+  </body>
+</html>
