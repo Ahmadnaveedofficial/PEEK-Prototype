@@ -279,8 +279,13 @@
 .v3-part-list {
   max-height: 470px;
   overflow: auto;
-  padding-right: 9px;
-  scrollbar-width: thin;
+  padding-right: 0;
+  /* scrolling still works (wheel, touch, keyboard) but the bar is hidden */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.v3-part-list::-webkit-scrollbar {
+  display: none;
 }
 .v3-part-list .li {
   font-size: 11px;
@@ -849,6 +854,14 @@ header .brand .peek-brand-art img,
 .v3-performance .pl-settings .chip {
   line-height: 1.4;
   padding: 5px 10px;
+}
+/* The rating pills were inheriting position:absolute from the old 3D-phone
+   ".chip" style, so they floated out of the table cell (and jumped to the far
+   side in Urdu/RTL). Keep them as normal inline elements inside the cell. */
+.v3-performance .pl-card .chip {
+  position: static;
+  box-shadow: none;
+  vertical-align: middle;
 }
 .v3-performance .pl-insg {
   gap: 16px;

@@ -11,6 +11,17 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="apple-touch-icon" href="peek-icon-updated.png" />
     <title>PEEK — Explore Technology inside out</title>
+    <script>
+      /* apply saved language direction before first paint */
+      try {
+        if (localStorage.getItem("peek-lang") === "ur") {
+          var h = document.documentElement;
+          h.lang = "ur";
+          h.dir = "rtl";
+          h.className += " lang-ur";
+        }
+      } catch (e) {}
+    </script>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="samsung-studio.css" />
     <link rel="stylesheet" href="discovery.css" />
@@ -18,6 +29,7 @@
     <link rel="stylesheet" href="perf-lab.css" />
     <link rel="stylesheet" href="v3-polish.css" />
     <link rel="stylesheet" href="v3-merge.css" />
+    <link rel="stylesheet" href="i18n.css" />
   </head>
   <body>
     <a
@@ -39,9 +51,27 @@
         ><a href="#performance">Performance</a><a href="#finder">Finder</a
         ><a href="#about">About</a>
       </nav>
-      <button class="primary small" onclick="startDemo()">
-        Explore demo <span>↗</span>
-      </button>
+      <div class="header-actions">
+      <button
+          type="button"
+          id="lang-toggle"
+          class="lang-toggle"
+          translate="no"
+          aria-pressed="false"
+          aria-label="اردو میں تبدیل کریں"
+          title="اردو میں تبدیل کریں"
+          onclick="PeekLang.toggle()"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9S14.5 18.4 12 21c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"></path>
+          </svg>
+          <span class="lang-label" lang="ur">اردو</span>
+        </button>
+        <button class="primary small" onclick="startDemo()">
+          Explore demo <span>↗</span>
+        </button>
+      </div>
     </header>
     <main id="main" tabindex="-1">
       <noscript>PEEK needs JavaScript. Enable it and reload.</noscript>
@@ -167,5 +197,7 @@
     <script src="home-knowledge.js"></script>
     <script src="v3-merge.js"></script>
     <script type="module" src="samsung-studio.js"></script>
+    <script src="i18n.js"></script>
+    <script src="i18n-ur.js"></script>
   </body>
 </html>

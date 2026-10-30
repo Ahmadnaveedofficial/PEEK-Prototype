@@ -787,7 +787,7 @@ dialog::backdrop {
     gap: 18px;
     font-size: 12px;
   }
-  header > .primary {
+  header .primary {
     display: none;
   }
   .intro {
@@ -992,7 +992,7 @@ header .brand,
   background: white;
   border-radius: 10px;
 }
-header > .primary {
+header .primary {
   border-color: #ffffff70;
 }
 footer .footer-bottom {
@@ -2129,7 +2129,7 @@ nav a.active:after {
   background: var(--cyan);
   box-shadow: 0 0 7px #7ce9d599;
 }
-header > .primary {
+header .primary {
   background: linear-gradient(110deg, #7060e3, #48389d);
   border-color: #b7a7ff55;
   border-radius: 24px;
@@ -2518,7 +2518,7 @@ nav a.active {
   background: linear-gradient(120deg, #1b17ff55, #1b17ff22);
   box-shadow: inset 0 0 0 1px #7673ff44;
 }
-header > .primary,
+header .primary,
 button.primary,
 .primary {
   background: #1b17ff;

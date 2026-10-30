@@ -1,0 +1,183 @@
+/* PEEK language switch: button + Urdu (RTL) adjustments */
+
+/* ---------- the navbar button ---------- */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 15px;
+  margin-inline: 0 12px;
+  border: 1px solid #7670e755;
+  border-radius: 24px;
+  background: #ffffff0a;
+  color: #fff;
+  font: 600 13px/1 "Segoe UI", "Noto Naskh Arabic", Tahoma, system-ui, sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+.lang-toggle:hover {
+  background: #ffffff16;
+  border-color: #9d94ff99;
+  box-shadow: 0 0 18px #7d5cf533;
+}
+.lang-toggle:focus-visible {
+  outline: 2px solid var(--cyan, #7ce9d5);
+  outline-offset: 3px;
+}
+.lang-toggle svg {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.lang-toggle .lang-label {
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+/* label "اردو" needs a font that has Urdu glyphs */
+.lang-toggle .lang-label:lang(ur),
+.lang-toggle[lang="ur"] .lang-label {
+  font-family: "Noto Naskh Arabic", "Segoe UI", Tahoma, system-ui, sans-serif;
+  font-size: 15px;
+}
+
+@media (max-width: 900px) {
+  .lang-toggle {
+    margin-inline: 0;
+    padding: 0 12px;
+    height: 34px;
+  }
+}
+@media (max-width: 600px) {
+  .lang-toggle {
+    padding: 0 10px;
+    gap: 5px;
+    height: 32px;
+    font-size: 12px;
+  }
+  .lang-toggle svg {
+    width: 14px;
+    height: 14px;
+  }
+  /* keep the five nav links reachable beside the new button */
+  header nav {
+    max-width: calc(100% - 190px) !important;
+  }
+}
+
+/* ---------- Urdu mode ---------- */
+html.lang-ur {
+  --ur-font: "Noto Naskh Arabic", "Noto Sans Arabic", "Segoe UI", Tahoma, "Arial", system-ui, sans-serif;
+  /* For a calligraphic Nastaliq look, swap in:  "Noto Nastaliq Urdu"
+     (also add it to FONT_HREF in i18n.js and raise line-height below). */
+}
+html.lang-ur body,
+html.lang-ur button,
+html.lang-ur input,
+html.lang-ur select,
+html.lang-ur textarea,
+html.lang-ur h1,
+html.lang-ur h2,
+html.lang-ur h3,
+html.lang-ur h4,
+html.lang-ur p,
+html.lang-ur a,
+html.lang-ur span,
+html.lang-ur small,
+html.lang-ur b,
+html.lang-ur strong,
+html.lang-ur em,
+html.lang-ur li,
+html.lang-ur td,
+html.lang-ur th,
+html.lang-ur label,
+html.lang-ur summary,
+html.lang-ur div {
+  font-family: var(--ur-font);
+}
+/* Arabic-script letters must stay joined: no tracking, no uppercase */
+html.lang-ur *,
+html.lang-ur *::before,
+html.lang-ur *::after {
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  font-style: normal;
+}
+html.lang-ur h1,
+html.lang-ur h2,
+html.lang-ur h3 {
+  line-height: 1.45;
+}
+html.lang-ur p,
+html.lang-ur li,
+html.lang-ur td,
+html.lang-ur small {
+  line-height: 1.9;
+}
+html.lang-ur .lang-toggle,
+html.lang-ur .lang-toggle * {
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* Things that must keep a fixed left-to-right geometry */
+html.lang-ur canvas,
+html.lang-ur .stage,
+html.lang-ur .studio-canvas,
+html.lang-ur [id*="studio"] canvas,
+html.lang-ur svg {
+  direction: ltr;
+}
+/* ...but text drawn inside them should still read naturally */
+html.lang-ur svg text {
+  direction: rtl;
+  unicode-bidi: plaintext;
+}
+/* numbers, units and model names stay left-to-right inside Urdu lines */
+html.lang-ur input[type="search"],
+html.lang-ur input[type="text"] {
+  text-align: start;
+}
+
+/* The PEEK logo artwork is positioned with physical offsets: keep it LTR */
+html.lang-ur .peek-brand-art,
+html.lang-ur header .brand,
+html.lang-ur .footer-brand-art {
+  direction: ltr;
+}
+
+/* English-only technical text (dimensions, chip names...) keeps LTR order */
+html.lang-ur [data-ltr] {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+html.lang-ur td[data-ltr],
+html.lang-ur dd[data-ltr],
+html.lang-ur li[data-ltr] {
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  html.lang-ur header nav { margin-inline-end: 34px; max-width: calc(100% - 215px) !important; }
+}
+
+/* toggle + demo button sit together on the far side of the header,
+   so the main menu stays centred exactly as before */
+.header-actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* "Best" badge: keep its gap on the correct side in RTL */
+html.lang-ur .v3-performance .pl-settings .best,
+html.lang-ur .best {
+  margin-left: 0;
+  margin-right: 8px;
+}
