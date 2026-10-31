@@ -1323,11 +1323,7 @@
 .discovery-route footer {
   margin-top: 0;
 }
-@media (min-width: 1000px) {
-  .discovery-route header nav {
-    gap: 30px;
-  }
-}
+/* nav gap is set once for all pages in responsive.css ("NAVBAR" block) */
 @media (max-width: 1000px) {
   .dis-status {
     display: none;

@@ -1,0 +1,676 @@
+/* PEEK: mobile / tablet responsive layer
+   Loaded last, so it only adds rules for small screens and never changes
+   the desktop layout. Breakpoints: 900px (tablet), 700px (phone), 420px (small phone). */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+body {
+  overflow-x: hidden;
+}
+
+/* ============ TABLET (<= 900px) ============ */
+@media (max-width: 900px) {
+  /* give the page real side padding so nothing touches the screen edge */
+  main {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+  dialog {
+    max-width: calc(100vw - 28px);
+    max-height: calc(100dvh - 40px);
+    overflow: auto;
+  }
+}
+
+/* ============ PHONE (<= 700px) ============ */
+@media (max-width: 700px) {
+  /* ---- 3D studio hero: stop the title / upload note from overlapping ---- */
+  .studio-upload-note {
+    display: none;
+  }
+  .has-started .studio-identity {
+    top: 236px;
+  }
+  .has-started .studio-webgl,
+  .has-started .studio-labels {
+    top: 282px;
+  }
+  .studio-coordinate b {
+    font-size: 9px;
+  }
+  .studio-coordinate div > span,
+  .studio-footnote span,
+  .studio-footnote button {
+    font-size: 9px;
+  }
+
+  /* ---- form controls: 16px stops iOS from zooming in on focus ---- */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+  button,
+  select,
+  [role="tab"],
+  .dis-options button {
+    min-height: 40px;
+  }
+
+
+  /* ---- wrappers: stop nested paddings from squeezing content ---- */
+  .v3-performance .performance-content,
+  .v3-performance .performance-intro,
+  .performance-content,
+  .performance-intro {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+  .performance-content > section,
+  .v3-performance section.pl-section {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  /* ---- Performance: "every setting" table becomes stacked cards ---- */
+  .v3-performance .pl-settings table {
+    min-width: 0 !important;
+    table-layout: auto;
+  }
+  .pl-settings thead {
+    display: none;
+  }
+  .pl-settings table,
+  .pl-settings tbody {
+    display: block;
+    width: 100%;
+  }
+  .pl-settings tbody tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 14px;
+    padding: 12px 6px;
+    border-bottom: 1px solid #23243a;
+  }
+  .pl-settings tbody tr.off {
+    display: block;
+  }
+  .v3-performance .pl-settings td {
+    display: block;
+    padding: 6px 6px !important;
+    border: 0 !important;
+    width: auto !important;
+  }
+  .pl-settings tbody tr:not(.off) td:first-child {
+    grid-column: 1 / -1;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .pl-settings tbody tr:not(.off) td:not(:first-child)::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 2px;
+    font-size: 10px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #8a8fa6;
+  }
+  /* the table has no data-label attributes, so label the cells by position */
+  .pl-settings tbody tr:not(.off) td:nth-child(2)::before {
+    content: "Avg FPS";
+  }
+  .pl-settings tbody tr:not(.off) td:nth-child(3)::before {
+    content: "1% low";
+  }
+  .pl-settings tbody tr:not(.off) td:nth-child(4)::before {
+    content: "Peak °C";
+  }
+  .pl-settings tbody tr:not(.off) td:nth-child(5)::before {
+    content: "Battery / h";
+  }
+  .pl-settings tbody tr:not(.off) td:nth-child(6)::before {
+    content: "Rating";
+  }
+  html.lang-ur .pl-settings tbody tr:not(.off) td:nth-child(2)::before {
+    content: "اوسط FPS";
+  }
+  html.lang-ur .pl-settings tbody tr:not(.off) td:nth-child(3)::before {
+    content: "1% لو";
+  }
+  html.lang-ur .pl-settings tbody tr:not(.off) td:nth-child(4)::before {
+    content: "زیادہ سے زیادہ °C";
+  }
+  html.lang-ur .pl-settings tbody tr:not(.off) td:nth-child(5)::before {
+    content: "بیٹری / گھنٹہ";
+  }
+  html.lang-ur .pl-settings tbody tr:not(.off) td:nth-child(6)::before {
+    content: "ریٹنگ";
+  }
+  .pl-settings tr.sel td:first-child {
+    box-shadow: none;
+  }
+  .pl-settings tr.sel {
+    box-shadow: inset 3px 0 #8f8bff;
+  }
+  html.lang-ur .pl-settings tr.sel {
+    box-shadow: inset -3px 0 #8f8bff;
+  }
+
+  /* ---- tables that only needed to be a little narrower ---- */
+  .pl-hw table,
+  .pl-card table {
+    min-width: 0 !important;
+  }
+  .pl-hw td,
+  .pl-card td {
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+  }
+  .pl-hw td:first-child {
+    width: auto;
+    min-width: 84px;
+    overflow-wrap: normal;
+  }
+}
+
+/* ============ SMALL PHONE (<= 420px) ============ */
+@media (max-width: 420px) {
+  .lang-toggle {
+    height: 32px;
+    padding: 0 10px;
+  }
+}
+
+/* ============ touch screens: comfortable tap targets ============ */
+@media (hover: none) and (pointer: coarse) {
+  .lang-toggle,
+  footer button,
+  footer a {
+    min-height: 40px;
+  }
+  footer a,
+  footer button {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* ============ extra phone fixes ============ */
+@media (max-width: 700px) {
+  /* comparison "component scores" table: fit the screen instead of scrolling sideways */
+  .ov {
+    overflow-x: visible;
+  }
+  .ov .tbl {
+    min-width: 0 !important;
+    width: 100%;
+    table-layout: fixed;
+  }
+  .ov .tbl th,
+  .ov .tbl td {
+    padding: 9px 6px !important;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+    vertical-align: top;
+  }
+  .ov .tbl th:first-child,
+  .ov .tbl td:first-child {
+    width: 27%;
+  }
+}
+@media (max-width: 480px) {
+  /* about page: 2-up cards are too narrow for their text */
+  .dis-about-features,
+  .v3-about-additions {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Finder form: one control per row so select text is never clipped */
+  #finder-form {
+    grid-template-columns: 1fr !important;
+  }
+  #finder-form > label,
+  #finder-form > .dis-budget-presets,
+  #finder-form > .dis-form-pair,
+  #finder-form > button {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+  }
+  .dis-budget-presets {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .dis-form-pair select,
+  #finder-form select {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-overflow: ellipsis;
+  }
+  .dis-section-heading {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .dis-sort,
+  .dis-sort select {
+    width: 100%;
+  }
+}
+
+
+/* =====================================================================
+   NAVBAR: one size on every page + hamburger drawer on small screens
+   (loaded last on purpose: this block is the single source of truth
+   for header layout, so pages can no longer resize the navbar)
+   ===================================================================== */
+
+/* ---------- desktop / laptop (> 900px) ---------- */
+header {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 16px;
+  height: 86px !important;
+}
+header .brand {
+  justify-self: start;
+}
+header nav {
+  justify-self: center;
+  gap: 6px !important;
+  margin: 0 !important;
+  max-width: none !important;
+  overflow: visible;
+}
+header nav a {
+  font-size: 12px !important;
+  padding: 0 21px;
+  white-space: nowrap;
+}
+header .header-actions {
+  justify-self: end;
+  gap: 10px;
+}
+header .header-actions .primary {
+  font-size: 11px;
+}
+.nav-toggle,
+.nav-backdrop,
+.nav-drawer-head,
+.nav-demo {
+  display: none;
+}
+
+/* laptops / small desktops: tighten so five links + buttons never collide */
+@media (max-width: 1180px) {
+  header {
+    padding: 0 28px !important;
+    column-gap: 10px;
+  }
+  header nav a {
+    padding: 0 14px;
+  }
+}
+
+/* ---------- tablet + phone (<= 900px): hamburger + right-side drawer ---------- */
+@media (max-width: 900px) {
+  header {
+    display: flex !important;
+    justify-content: space-between;
+    height: 66px !important;
+    padding: 0 16px !important;
+    gap: 12px;
+    /* backdrop-filter would trap the fixed drawer inside the header */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  header .header-actions {
+    margin-inline-start: auto;
+    gap: 8px;
+  }
+  header .header-actions .primary {
+    display: none !important;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border-radius: 14px;
+    border: 1px solid #ffffff22;
+    background: #ffffff0d;
+    color: #fff;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .nav-toggle:hover,
+  .nav-toggle[aria-expanded="true"] {
+    background: #ffffff1c;
+    border-color: #9d94ff99;
+  }
+  .nav-toggle:focus-visible,
+  .nav-close:focus-visible,
+  header nav a:focus-visible,
+  .nav-demo:focus-visible {
+    outline: 2px solid var(--cyan, #7ce9d5);
+    outline-offset: 2px;
+  }
+  .nav-toggle .bars {
+    position: relative;
+    width: 18px;
+    height: 12px;
+  }
+  .nav-toggle .bars i {
+    position: absolute;
+    inset-inline: 0;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+  }
+  .nav-toggle .bars i:nth-child(1) { top: 0; }
+  .nav-toggle .bars i:nth-child(2) { top: 5px; }
+  .nav-toggle .bars i:nth-child(3) { top: 10px; }
+
+  /* dark overlay behind the drawer */
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: #04050acc;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.28s ease, visibility 0s linear 0.28s;
+  }
+
+  /* the existing <nav> becomes the drawer */
+  header nav {
+    position: fixed !important;
+    top: 0;
+    bottom: 0;
+    inset-inline-end: 0;
+    inset-inline-start: auto;
+    z-index: 2;
+    width: min(78vw, 320px) !important;
+    max-width: 320px !important;
+    height: 100dvh !important;
+    margin: 0 !important;
+    padding: 14px 16px calc(20px + env(safe-area-inset-bottom)) !important;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 6px !important;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-radius: 0;
+    border: 0;
+    border-inline-start: 1px solid #7673ff44;
+    background: #0e0f17;
+    box-shadow: -24px 0 60px #000a;
+    transform: translateX(104%);
+    visibility: hidden;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0s linear 0.3s;
+  }
+  html[dir="rtl"] header nav {
+    box-shadow: 24px 0 60px #000a;
+    transform: translateX(-104%);
+  }
+  /* i18n.css has an older, more specific Urdu nav rule: beat it explicitly */
+  html.lang-ur header nav {
+    width: min(78vw, 320px) !important;
+    max-width: 320px !important;
+    margin: 0 !important;
+  }
+
+  .nav-drawer-head {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid #ffffff14;
+  }
+  .nav-close {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    border: 1px solid #ffffff22;
+    background: #ffffff0d;
+    color: #fff;
+    cursor: pointer;
+  }
+  .nav-toggle svg,
+  .nav-close svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  header nav a {
+    flex: none !important;
+    width: 100%;
+    height: auto !important;
+    min-height: 50px;
+    padding: 0 18px !important;
+    justify-content: flex-start !important;
+    text-align: start;
+    font-size: 16px !important;
+    font-weight: 500;
+    border-radius: 14px;
+  }
+  /* active page: soft highlight + accent bar instead of the tiny desktop dot */
+  header nav a.active {
+    background: linear-gradient(120deg, #1b17ff55, #1b17ff22);
+    box-shadow: inset 0 0 0 1px #7673ff55;
+  }
+  header nav a.active:after {
+    left: auto;
+    bottom: auto;
+    top: calc(50% - 10px);
+    inset-inline-end: 14px;
+    width: 4px;
+    height: 20px;
+    border-radius: 4px;
+    background: #8f8bff;
+    box-shadow: 0 0 10px #8f8bff99;
+  }
+
+  .nav-demo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: auto;
+    min-height: 50px;
+    border: 1px solid #514eff;
+    border-radius: 14px;
+    background: #1b17ff;
+    color: #fff;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  header nav a + .nav-demo {
+    margin-top: 18px;
+  }
+
+  html.nav-open {
+    overflow: hidden;
+  }
+  html.nav-open .nav-backdrop {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.28s ease;
+  }
+  html.nav-open header nav {
+    transform: none;
+    visibility: visible;
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+}
+
+@media (max-width: 420px) {
+  header {
+    padding: 0 12px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header nav,
+  .nav-backdrop {
+    transition: none !important;
+  }
+}
+
+
+/* =====================================================================
+   3D STUDIO on phones: stop the bottom notes + part labels overlapping
+   ===================================================================== */
+@media (max-width: 700px) {
+  /* the global 40px tap-target rule made this tiny text link 40px tall,
+     which pushed the whole footnote up on top of the hint text */
+  .studio-footnote button {
+    min-height: 0;
+    padding: 5px 6px;
+  }
+  .studio-footnote {
+    bottom: 12px;
+    gap: 2px 9px;
+    padding-top: 10px;
+  }
+  .studio-bottom {
+    bottom: 80px;
+    gap: 12px;
+  }
+  .studio-selection {
+    bottom: 200px;
+  }
+  .has-started .studio-webgl,
+  .has-started .studio-labels {
+    bottom: 192px;
+  }
+}
+@media (max-width: 480px) {
+  /* part labels: wrap onto two short lines instead of colliding */
+  .part-pin {
+    min-height: 0;
+    padding: 4px 0;
+    max-width: 17.5vw;
+    white-space: normal;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.15;
+  }
+  .part-pin small {
+    display: none;
+  }
+}
+
+
+/* =====================================================================
+   Comparison "Component scores" table -> stacked cards on phones
+   (a 4-column table is unreadable at 360px: words were breaking mid-word)
+   ===================================================================== */
+@media (max-width: 560px) {
+  .ov .tbl,
+  .ov .tbl tbody {
+    display: block;
+    width: 100%;
+  }
+  .ov .tbl thead {
+    display: none;
+  }
+  .ov .tbl tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px 14px;
+    padding: 14px 2px;
+    border-bottom: 1px solid #23243a;
+  }
+  .ov .tbl th,
+  .ov .tbl td,
+  .ov .tbl th:first-child,
+  .ov .tbl td:first-child {
+    display: block;
+    width: auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+    font-size: 13px;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
+  }
+  .ov .tbl th[scope="row"] {
+    grid-column: 1 / -1;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .ov .tbl td:nth-child(4) {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px 10px;
+  }
+  .ov .tbl td:nth-child(2)::before,
+  .ov .tbl td:nth-child(3)::before {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 10px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #8a8fa6;
+  }
+  .ov .tbl td:nth-child(2)::before {
+    content: "Device A";
+  }
+  .ov .tbl td:nth-child(3)::before {
+    content: "Device B";
+  }
+  html.lang-ur .ov .tbl td:nth-child(2)::before {
+    content: "ڈیوائس A";
+  }
+  html.lang-ur .ov .tbl td:nth-child(3)::before {
+    content: "ڈیوائس B";
+  }
+  .ov .tbl .tg {
+    white-space: nowrap;
+  }
+}
+
+/* footer columns: even spacing between links and buttons on phones */
+@media (max-width: 700px) {
+  .footer-grid a,
+  .footer-grid button {
+    display: flex;
+    align-items: center;
+    min-height: 34px;
+    margin: 0;
+    padding: 0;
+    text-align: start;
+  }
+}

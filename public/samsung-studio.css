@@ -616,12 +616,7 @@ body.studio-page #main {
 .has-started .studio-intro h1 em {
   margin-left: 0.25em;
 }
-.studio-page header .primary {
-  font-size: 10px;
-}
-body.studio-page nav a {
-  font-size: 11px;
-}
+/* navbar size is now identical on every page: see the "NAVBAR" block in responsive.css */
 @keyframes studio-stars {
   to {
     transform: translate(15px, 20px);
